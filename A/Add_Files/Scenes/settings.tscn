@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://q4qpxcwaspwt"]
+
+[node name="Settings" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Settings" type="TabContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.5
+offset_top = -175.5
+offset_right = 234.5
+offset_bottom = 175.5
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Video" type="TabBar" parent="CanvasLayer/Settings"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Audio" type="TabBar" parent="CanvasLayer/Settings"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Controls" type="TabBar" parent="CanvasLayer/Settings"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2

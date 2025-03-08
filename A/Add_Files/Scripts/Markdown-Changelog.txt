@@ -1,0 +1,14 @@
+# Journal de bord
+
+###Journal
+
+-[23.02.2025](#23.02.2025)
+
+
+##23.02.2025
+Mise en place du 2e repository (final j'espère') et ajout des premiers assets.
+Utilisation de Github Desktop (utilisation avec Godot) à la place d'une greffe Godot dans VScode.
+Premiers pushs en ligne: tout fonctionne
+Installation de Libresprite pour la création des assets
+Mise en place d'un node RichTextLabel pour le journal de bord en MarkDown
+Organisation: assets sauvegardés sur l'online GBJB sous forme .ase et .png puis copiés dans le projet Godot sur besoin.
