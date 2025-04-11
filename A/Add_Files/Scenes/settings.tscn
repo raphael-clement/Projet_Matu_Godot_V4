@@ -1,9 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://q4qpxcwaspwt"]
-
-[ext_resource type="Script" path="res://Add_Files/Scripts/Settings.gd" id="1_42n0k"]
+[gd_scene format=3 uid="uid://q4qpxcwaspwt"]
 
 [node name="Settings" type="Node2D"]
-script = ExtResource("1_42n0k")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -13,10 +10,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -328.0
-offset_top = -322.0
-offset_right = 575.0
-offset_bottom = 326.0
+offset_left = -234.5
+offset_top = -175.5
+offset_right = 234.5
+offset_bottom = 175.5
 grow_horizontal = 2
 grow_vertical = 2
 current_tab = 0
@@ -34,15 +31,3 @@ metadata/_tab_index = 1
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 27.0
-offset_top = 28.0
-offset_right = 222.0
-offset_bottom = 620.0
-
-[node name="Back" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-text = "Back"
-
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/Back" to="." method="_on_back_pressed"]

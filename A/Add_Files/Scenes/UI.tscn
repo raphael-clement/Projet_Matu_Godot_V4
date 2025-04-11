@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://qyc4kqtru0tf"]
 
-[ext_resource type="FontFile" uid="uid://dltyf0ds0m7v6" path="res://Add_Files/Assets/Fonts/Minecraftia-Regular.ttf" id="1_sxlhy"]
-[ext_resource type="Script" path="res://Add_Files/Scripts/Menu-UI.gd" id="2_omumc"]
-[ext_resource type="Theme" uid="uid://c1jdghcwd4l4a" path="res://Add_Files/Assets/Stylebox/UI_theme.tres" id="3_x500c"]
-[ext_resource type="Texture2D" uid="uid://ckkg4jmede84u" path="res://Add_Files/Assets/Pixel_Art/UI-Background.png" id="4_614na"]
+[ext_resource type="FontFile" uid="uid://dltyf0ds0m7v6" path="res://Add_Files/Assets/Fonts/Minecraftia-Regular.ttf" id="2_4rwdt"]
+[ext_resource type="Texture2D" uid="uid://ckkg4jmede84u" path="res://Add_Files/Assets/Pixel_Art/UI-Background.png" id="2_s2nd3"]
+[ext_resource type="Script" path="res://Add_Files/Scripts/ui.gd" id="2_umfob"]
+[ext_resource type="Theme" uid="uid://c1jdghcwd4l4a" path="res://Add_Files/Assets/Stylebox/UI_theme.tres" id="3_rigk8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glquc"]
 bg_color = Color(0.459951, 0.441305, 0.632445, 1)
@@ -12,12 +12,12 @@ bg_color = Color(0.459951, 0.441305, 0.632445, 1)
 bg_color = Color(0.335666, 0.318116, 0.483476, 1)
 
 [sub_resource type="Theme" id="Theme_nt8q1"]
-default_font = ExtResource("1_sxlhy")
+default_font = ExtResource("2_4rwdt")
 Button/font_sizes/font_size = 16
 Button/styles/focus = SubResource("StyleBoxFlat_glquc")
 Button/styles/hover = SubResource("StyleBoxFlat_gj32q")
 
-[node name="Menu-UI" type="Control"]
+[node name="UI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_nt8q1")
-script = ExtResource("2_omumc")
+script = ExtResource("2_umfob")
 
 [node name="Menu" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -40,8 +40,8 @@ offset_right = 168.0
 offset_bottom = 239.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_x500c")
-texture = ExtResource("4_614na")
+theme = ExtResource("3_rigk8")
+texture = ExtResource("2_s2nd3")
 patch_margin_left = 11
 patch_margin_top = 11
 patch_margin_right = 11

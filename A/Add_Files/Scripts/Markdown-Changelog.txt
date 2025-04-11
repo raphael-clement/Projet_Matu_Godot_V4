@@ -12,26 +12,3 @@ Premiers pushs en ligne: tout fonctionne
 Installation de Libresprite pour la création des assets
 Mise en place d'un node RichTextLabel pour le journal de bord en MarkDown
 Organisation: assets sauvegardés sur l'online GBJB sous forme .ase et .png puis copiés dans le projet Godot sur besoin.
-
--[12.03.2025](#12.03.2025)(#Plan)
-
-
-##12.02.2025
-Un peu d'organisation (ordre d'implémentation attendu: Haut vers le bas)
-	Player:
-		UI(Menu)
-		UI(In game) -> Besoin d'avoir une idée définie du jeu pour ajouter une UI qui correspond au jeu visé
-		Inventaire
-		Redisign du déplacement (Click to location + Pathfinding)
-		Pathfinding pour mobs (Modèle général)
-		Arbre de progression (Lié aux batiments plaçables)
-	Map:
-		Faire les assets (Tile-set)
-			Orienté Oxy.not.Inc ou Dome Keeper /Wall World
-			Explorer l'option Wall World où les murs des blocks sont révélés quand une face du bloc est exposée
-		Destruction des tiles (Tuto enregistré)
-		Placer des tiles (Après inventaire)
-		Shaders / Implémentation Lumière
-		Level Design (Concept open-world avec progression Bas->Haut)
-		
-		
