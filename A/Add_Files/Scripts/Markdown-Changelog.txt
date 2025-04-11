@@ -16,7 +16,7 @@ Organisation: assets sauvegardés sur l'online GBJB sous forme .ase et .png puis
 -[12.03.2025](#12.03.2025)(#Plan)
 
 
-##12.03.2025
+##12.02.2025
 Un peu d'organisation (ordre d'implémentation attendu: Haut vers le bas)
 	Player:
 		UI(Menu)
@@ -76,8 +76,3 @@ Echec du tuto d'hier, voici le code:
 	func _process(delta: float) -> void:
 		TestEsc()
  Je réessaie aujourd'hui avec le tuto: Best way to pause your game using the notification trick, de Chris'Tutorial
-
--[25.03.2025](#25.03.25)
-
-##25.03.25
-Update: Je n'ai pas réussi à faire un menu de pause, 3 tutos différents et 6 heures

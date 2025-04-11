@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://brety0884tghs"]
-
-[ext_resource type="Script" path="res://Add_Files/Scripts/gameplay_manager.gd" id="1_ivo8u"]
-
-[node name="GameplayManager" type="Node"]
-process_mode = 3
-script = ExtResource("1_ivo8u")
