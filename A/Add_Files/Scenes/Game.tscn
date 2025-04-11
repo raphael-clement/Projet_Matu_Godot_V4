@@ -27,7 +27,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PauseMenu" type="Control" parent="CanvasLayer/UI" node_paths=PackedStringArray("gameplay_manager")]
+[node name="PauseMenu" type="Control" parent="CanvasLayer/UI"]
 process_mode = 2
 anchors_preset = 0
 offset_right = 40.0

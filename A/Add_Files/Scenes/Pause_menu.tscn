@@ -13,7 +13,6 @@ grow_vertical = 2
 script = ExtResource("1_tg70s")
 
 [node name="PanelContainer" type="Panel" parent="."]
-modulate = Color(1, 1, 1, 0.745098)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
