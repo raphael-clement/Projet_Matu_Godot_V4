@@ -1,9 +1,75 @@
-[gd_scene load_steps=2 format=3 uid="uid://qw1kvjfsnr0t"]
+[gd_scene load_steps=7 format=3 uid="uid://qw1kvjfsnr0t"]
 
 [ext_resource type="Script" path="res://Add_Files/Scripts/pause_menu.gd" id="1_tg70s"]
+[ext_resource type="Shader" path="res://Add_Files/Assets/Stylebox/Pause_menu_Blur.gdshader" id="2_ws5wr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_chbfc"]
+shader = ExtResource("2_ws5wr")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_mdkea"]
+resource_name = "Blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.925]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.745098), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0yjrn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lm882"]
+_data = {
+"Blur": SubResource("Animation_mdkea"),
+"RESET": SubResource("Animation_0yjrn")
+}
 
 [node name="PauseMenu" type="Control"]
-process_mode = 2
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,8 +78,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tg70s")
 
-[node name="PanelContainer" type="Panel" parent="."]
-modulate = Color(1, 1, 1, 0.745098)
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_chbfc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,14 +105,7 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
-offset_right = 244.0
-offset_bottom = 166.0
 alignment = 1
-
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "-- Paused -- "
 
 [node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -49,6 +118,11 @@ text = "Documentation"
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lm882")
+}
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Documentation" to="." method="_on_documentation_pressed"]

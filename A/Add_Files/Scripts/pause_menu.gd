@@ -1,15 +1,34 @@
-class_name PauseMenu
 extends Control
 
-@export var gameplay_manager : GameplayManager
+func ready():
+	$AnimationPlayer.play("RESET")
 
-func _ready() -> void:
-	hide()
-	gameplay_manager.connect("toggle_game_paused", _on_gameplay_manager_toggle_game_paused)
+func resume():
+	get_tree().paused = false
+	$AnimationPlayer.play_backward("Blur")
+
+func pause():
+	get_tree().paused = true
+	$AnimationPlayer.play("Blur")
+
+func TestEsc():
+	if Input.is_action_just_pressed("escape") and get_tree().paused == false:
+		pause()
+	elif Input.is_action_just_pressed("escape") and get_tree().paused == true:
+		resume()
 
 
-func _on_gameplay_manager_toggle_game_paused(is_paused: bool):
-	if(is_paused):
-		show()
-	else:
-		hide()
+func _on_resume_pressed() -> void:
+	resume()
+
+
+func _on_documentation_pressed() -> void:
+	pass
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit
+
+
+func _process(delta: float) -> void:
+	TestEsc()
