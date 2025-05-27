@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://bf87yycbjmehi"]
+[gd_scene load_steps=14 format=3 uid="uid://bf87yycbjmehi"]
 
 [ext_resource type="PackedScene" uid="uid://btdcsxq5boh60" path="res://Add_Files/Scenes/Player.tscn" id="1_37iaw"]
 [ext_resource type="PackedScene" uid="uid://0whxq6hl0nmr" path="res://Add_Files/Scenes/Killzone.tscn" id="2_qd7i1"]
 [ext_resource type="Texture2D" uid="uid://cv24gqf7hgj7n" path="res://Add_Files/Assets/Pixel_Art/Tile-set-1.png" id="2_y5l6f"]
 [ext_resource type="Texture2D" uid="uid://b74j6sqo5bqyl" path="res://Add_Files/Assets/Pixel_Art/Background-tileset.png" id="4_grge0"]
-[ext_resource type="PackedScene" uid="uid://bx5ed2dg1qmyx" path="res://Add_Files/Scenes/Inventory_Item.tscn" id="5_bf1lp"]
-[ext_resource type="Texture2D" uid="uid://df2db1b6eqmuv" path="res://Add_Files/Assets/Pixel_Art/Random-Item-2.png" id="6_7bryg"]
-[ext_resource type="Texture2D" uid="uid://dh7dbojjv36v7" path="res://Add_Files/Assets/Pixel_Art/Random-Item-1.png" id="7_bite2"]
+[ext_resource type="Script" path="res://Add_Files/Scripts/inventoryA2.gd" id="5_327vh"]
+[ext_resource type="Texture2D" uid="uid://3ii5hi4hb6e3" path="res://Add_Files/Assets/Pixel_Art/Blank_sprite.png" id="6_r3j3q"]
+[ext_resource type="Script" path="res://Add_Files/Inventory/add_item.gd" id="7_kxb85"]
+[ext_resource type="Texture2D" uid="uid://dh7dbojjv36v7" path="res://Add_Files/Assets/Pixel_Art/Random-Item-1.png" id="8_8kldk"]
+[ext_resource type="Texture2D" uid="uid://bgfqyh6pmd88a" path="res://Add_Files/Assets/Pixel_Art/Stick.png" id="9_eyv7w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rm537"]
 texture = ExtResource("2_y5l6f")
@@ -85,10 +87,63 @@ position = Vector2(-3, 65)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_1tf7f")
 
-[node name="Inventory_Item" parent="." instance=ExtResource("5_bf1lp")]
-position = Vector2(117, -27)
-item_texture = ExtResource("6_7bryg")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Inventory_Item2" parent="." instance=ExtResource("5_bf1lp")]
-position = Vector2(46, -9)
-item_texture = ExtResource("7_bite2")
+[node name="ItemList" type="ItemList" parent="CanvasLayer"]
+offset_left = 371.0
+offset_top = -62.0
+offset_right = 482.0
+offset_bottom = 121.0
+allow_reselect = true
+allow_rmb_select = true
+allow_search = false
+auto_height = true
+max_columns = 4
+same_column_width = true
+fixed_column_width = 55
+icon_mode = 0
+fixed_icon_size = Vector2i(50, 50)
+script = ExtResource("5_327vh")
+inventory_size = null
+blank_icon = ExtResource("6_r3j3q")
+
+[node name="Sword" type="Button" parent="CanvasLayer" node_paths=PackedStringArray("inv")]
+offset_left = 372.0
+offset_top = -129.0
+offset_right = 429.0
+offset_bottom = -98.0
+text = "Sword"
+script = ExtResource("7_kxb85")
+inv = NodePath("../ItemList")
+item_name = "Sword"
+item_icon = ExtResource("8_8kldk")
+max_qty = 1
+qty = 1
+
+[node name="Stick 3" type="Button" parent="CanvasLayer" node_paths=PackedStringArray("inv")]
+offset_left = 433.0
+offset_top = -95.0
+offset_right = 491.0
+offset_bottom = -64.0
+text = "Stick 3"
+script = ExtResource("7_kxb85")
+inv = NodePath("../ItemList")
+id = 1
+item_name = "Stick"
+item_icon = ExtResource("9_eyv7w")
+max_qty = 10
+qty = 3
+
+[node name="Stick 5" type="Button" parent="CanvasLayer" node_paths=PackedStringArray("inv")]
+offset_left = 370.0
+offset_top = -96.0
+offset_right = 428.0
+offset_bottom = -65.0
+text = "Stick 5"
+script = ExtResource("7_kxb85")
+inv = NodePath("../ItemList")
+id = 1
+item_name = "Stick"
+item_icon = ExtResource("9_eyv7w")
+max_qty = 10
+qty = 5

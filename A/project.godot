@@ -11,13 +11,9 @@ config_version=5
 [application]
 
 config/name="ProjetGodot_DocumentGodot"
-run/main_scene="res://Add_Files/Scenes/UI.tscn"
+run/main_scene="res://Repository-Github-Godot/Scenes/Game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
-
-[autoload]
-
-Global="*res://Add_Files/Scripts/Global.gd"
 
 [input]
 

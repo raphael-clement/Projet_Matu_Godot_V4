@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://c41jec7ad1bxr"]
+
+[ext_resource type="Script" path="res://Add_Files/Inventory/inventory_item.gd" id="1_pf00n"]
+[ext_resource type="Texture2D" uid="uid://bgfqyh6pmd88a" path="res://Add_Files/Assets/Pixel_Art/Stick.png" id="2_s6dyn"]
+
+[resource]
+script = ExtResource("1_pf00n")
+name = "Stick"
+weight = 5
+type_1 = "weapon"
+type_2 = "equipable"
+type_3 = "craft"
+damage = 3
+defence = 0
+texture = ExtResource("2_s6dyn")

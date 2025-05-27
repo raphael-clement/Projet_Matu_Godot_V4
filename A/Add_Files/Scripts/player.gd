@@ -1,5 +1,6 @@
 extends CharacterBody2D
-
+class_name Player
+@export var playerinv: Inv
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
@@ -7,9 +8,8 @@ const JUMP_VELOCITY = -300.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interact_ui: CanvasLayer = $InteractUI
 
-
-func _ready() -> void:
-	Global.set_player_reference(self)
+#func _ready() -> void:
+	#Global.set_player_reference(self)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

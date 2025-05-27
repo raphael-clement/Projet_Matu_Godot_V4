@@ -12,3 +12,108 @@ Premiers pushs en ligne: tout fonctionne
 Installation de Libresprite pour la création des assets
 Mise en place d'un node RichTextLabel pour le journal de bord en MarkDown
 Organisation: assets sauvegardés sur l'online GBJB sous forme .ase et .png puis copiés dans le projet Godot sur besoin.
+
+-[12.03.2025](#12.03.2025)(#Plan)
+
+
+##12.02.2025
+##12.03.2025
+Un peu d'organisation (ordre d'implémentation attendu: Haut vers le bas)
+	Player:
+		UI(Menu)
+		UI(In game) -> Besoin d'avoir une idée définie du jeu pour ajouter une UI qui correspond au jeu visé
+		Inventaire
+		Redisign du déplacement (Click to location + Pathfinding)
+		Pathfinding pour mobs (Modèle général)
+		Arbre de progression (Lié aux batiments plaçables)
+	Map:
+		Faire les assets (Tile-set)
+			Orienté Oxy.not.Inc ou Dome Keeper /Wall World
+			Explorer l'option Wall World où les murs des blocks sont révélés quand une face du bloc est exposée
+		Destruction des tiles (Tuto enregistré)
+		Placer des tiles (Après inventaire)
+		Shaders / Implémentation Lumière
+		Level Design (Concept open-world avec progression Bas->Haut)
+		
+
+
+-[13.03.2025](#13.03.2025)
+
+##13.03.2025
+Echec du tuto d'hier, voici le code:
+	
+	extends Control
+
+	func ready():
+		$AnimationPlayer.play("RESET")
+
+	func resume():
+	get_tree().paused = false
+	$AnimationPlayer.play_backward("Blur")
+
+	func pause():
+		get_tree().paused = true
+		$AnimationPlayer.play("Blur")
+
+	func TestEsc():
+		if Input.is_action_just_pressed("escape") and get_tree().paused == false:
+			pause()
+		elif Input.is_action_just_pressed("escape") and get_tree().paused == true:
+			resume()
+
+
+	func _on_resume_pressed() -> void:
+		resume()
+
+
+	func _on_documentation_pressed() -> void:
+		pass
+
+
+	func _on_quit_pressed() -> void:
+		get_tree().quit
+
+
+	func _process(delta: float) -> void:
+		TestEsc()
+ Je réessaie aujourd'hui avec le tuto: Best way to pause your game using the notification trick, de Chris'Tutorial
+
+-[25.03.2025](#25.03.25)
+
+##25.03.25
+Update: Je n'ai pas réussi à faire un menu de pause, 3 tutos différents et 6 heures
+
+-[12.04.2025](#12.04.2025)
+
+##12.04.2025
+Après 2h30 je n'arrive pas à fixer l'inventaire.
+Tuto: Playlist -> Godot 4 dynamic Slot-Based Inventory system series, par Oops I Dev'd
+Erreur: Parse Error: Identifier "Global" not declared in the current scope.
+Code:
+func pickup_item():
+	var item = {
+		"quantity" : 1,
+		"item_type" : item_type,
+		"item_name" : item_name,
+		"item_texture" : item_texture,
+		"item_effect" : item_effect,
+		"scene_path" : scene_path
+	}
+	if Global.player_node:
+		Global.add_item(item)
+		self.queue_free()
+
+-[13.04.2025](#13.04.2025)
+
+##13.04.2025
+Je vais essayer avec de faire l'inventaire avec un autre tuto
+Je n'arrive pas à créer une ressource indépendante d'un script, je ne peux pas la sauvegarder car elle est dépendante d'un script
+Update 17.04: J'ai réussi à débloquer le début mais je me retrouve dans le même problème après. Je préfère passer au breakable tiles
+
+
+-[18.05.2025](#18.05.2025)
+
+##18.05.2025
+Nouveau tuto pour l'inventaire, aucune erreur mais il ne s'affiche pas à l'écran.
+Nom: Godot 4.3 GDScript: How to make an easy inventory system with itemlist
+Auteur: Royas Godot
