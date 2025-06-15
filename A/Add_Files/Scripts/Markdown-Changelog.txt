@@ -117,3 +117,13 @@ Update 17.04: J'ai réussi à débloquer le début mais je me retrouve dans le m
 Nouveau tuto pour l'inventaire, aucune erreur mais il ne s'affiche pas à l'écran.
 Nom: Godot 4.3 GDScript: How to make an easy inventory system with itemlist
 Auteur: Royas Godot
+
+
+-[15.06.2025](#15.06.2025)
+
+##15.06.2025
+Arrêt des tutos inventaire, j'ai pris un projet disponible d'inventaire et je l'ai intégré dans mon projet
+inventory-system-draggable-with-equipment disponible depuis la libraire godot
+Conclusion intermédiaire: je n'ai pas du tout les moyens de créer un jeu vidéo par moi-même
+il aurait fallu apprendre la programmation et la création de jeu vidéo avant de se lancer sur un projet comme celui-ci
+Il faut maintenant que j'arrive a faire des objets pickable et dropable

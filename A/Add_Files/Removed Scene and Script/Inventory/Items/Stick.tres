@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://c41jec7ad1bxr"]
 
-[ext_resource type="Script" path="res://Add_Files/Inventory/inventory_item.gd" id="1_pf00n"]
+[ext_resource type="Script" path="res://Add_Files/Removed Scene and Script/Inventory/inventory_item.gd" id="1_pf00n"]
 [ext_resource type="Texture2D" uid="uid://bgfqyh6pmd88a" path="res://Add_Files/Assets/Pixel_Art/Stick.png" id="2_s6dyn"]
 
 [resource]
