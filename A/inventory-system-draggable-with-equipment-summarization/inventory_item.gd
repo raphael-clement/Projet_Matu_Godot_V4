@@ -39,3 +39,5 @@ func make_drag_preview() -> TextureRect:
 
 func _process(_delta):
 	equipmentsum[0] = physicalattack
+	
+	

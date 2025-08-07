@@ -127,3 +127,14 @@ inventory-system-draggable-with-equipment disponible depuis la libraire godot
 Conclusion intermédiaire: je n'ai pas du tout les moyens de créer un jeu vidéo par moi-même
 il aurait fallu apprendre la programmation et la création de jeu vidéo avant de se lancer sur un projet comme celui-ci
 Il faut maintenant que j'arrive a faire des objets pickable et dropable
+
+
+-[16.06.2025](#16.06.2025)
+
+##16.06.2025
+J'essaye de faire en sorte que les inventory_item puissent être drop et pick.
+Je pense que c'est possible en faisant que les inventory_item _on_hovered if _on_"q"(drop)_pressed soient set à -1 avec 0 pour limite
+et que ainsi je détruise un inventory_item et que je crée un world_item avec les mêmes données aux coordonnées du player
+le world_item devrait extends Node2D pour que je puisse lui donner de la physique.
+Problème: je n'ai pas de code pour ajouter et supprimer un inventory_item et je pense pas savoir transférer les données d'un inventory_item à un world_item
+Piste: Projet godot de pickitem https://github.com/user-atachments/assets/68cc83ba-2529-4224-bd38-a290c143deb8 mais il semble partiellement cassé
