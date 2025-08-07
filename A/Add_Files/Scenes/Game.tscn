@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bf87yycbjmehi"]
+[gd_scene load_steps=12 format=3 uid="uid://bf87yycbjmehi"]
 
-[ext_resource type="PackedScene" uid="uid://btdcsxq5boh60" path="res://Repository-Github-Godot/Scenes/Player.tscn" id="1_37iaw"]
-[ext_resource type="PackedScene" uid="uid://0whxq6hl0nmr" path="res://Repository-Github-Godot/Scenes/Killzone.tscn" id="2_qd7i1"]
-[ext_resource type="Texture2D" uid="uid://cv24gqf7hgj7n" path="res://Repository-Github-Godot/Assets/Tile-set-1.png" id="2_y5l6f"]
-[ext_resource type="Texture2D" uid="uid://b74j6sqo5bqyl" path="res://Repository-Github-Godot/Assets/Background-tileset.png" id="4_grge0"]
+[ext_resource type="PackedScene" uid="uid://btdcsxq5boh60" path="res://Add_Files/Scenes/Player.tscn" id="1_37iaw"]
+[ext_resource type="PackedScene" uid="uid://0whxq6hl0nmr" path="res://Add_Files/Scenes/Killzone.tscn" id="2_qd7i1"]
+[ext_resource type="Texture2D" uid="uid://cv24gqf7hgj7n" path="res://Add_Files/Assets/Pixel_Art/Tile-set-1.png" id="2_y5l6f"]
+[ext_resource type="Script" path="res://Add_Files/Scripts/inventory.gd" id="4_a3pyf"]
+[ext_resource type="Texture2D" uid="uid://b74j6sqo5bqyl" path="res://Add_Files/Assets/Pixel_Art/Background-tileset.png" id="4_grge0"]
+[ext_resource type="Script" path="res://Add_Files/Scripts/equipment.gd" id="5_a565q"]
+[ext_resource type="Script" path="res://Add_Files/Scripts/statistics.gd" id="6_ynblt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rm537"]
 texture = ExtResource("2_y5l6f")
@@ -75,6 +78,47 @@ position = Vector2(12, -14)
 zoom = Vector2(3.5, 3.5)
 limit_bottom = 120
 limit_smoothed = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D"]
+scale = Vector2(0.8, 0.8)
+transform = Transform2D(0.8, 0, 0, 0.8, 0, 0)
+
+[node name="Player Tab" type="TabContainer" parent="Player/Camera2D/CanvasLayer"]
+z_index = 5
+anchors_preset = -1
+anchor_left = 0.069
+anchor_top = -0.108
+anchor_right = 0.069
+anchor_bottom = -0.108
+offset_left = 1030.51
+offset_top = 72.484
+offset_right = 1359.51
+offset_bottom = 880.484
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Inventory" type="TabBar" parent="Player/Camera2D/CanvasLayer/Player Tab"]
+layout_mode = 2
+script = ExtResource("4_a3pyf")
+metadata/_tab_index = 0
+
+[node name="Equipment" type="TabBar" parent="Player/Camera2D/CanvasLayer/Player Tab"]
+visible = false
+layout_mode = 2
+script = ExtResource("5_a565q")
+metadata/_tab_index = 1
+
+[node name="Recipes" type="TabBar" parent="Player/Camera2D/CanvasLayer/Player Tab"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Statistics" type="TabBar" parent="Player/Camera2D/CanvasLayer/Player Tab"]
+visible = false
+layout_mode = 2
+script = ExtResource("6_ynblt")
+metadata/_tab_index = 3
 
 [node name="Killzone" parent="." instance=ExtResource("2_qd7i1")]
 position = Vector2(-3, 65)
