@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://btdcsxq5boh60"]
 
-[ext_resource type="Script" path="res://Repository-Github-Godot/Scripts/player.gd" id="1_seq41"]
-[ext_resource type="Texture2D" uid="uid://dvdd3w2rkkgv7" path="res://Repository-Github-Godot/Assets/Knight-1-tileset-fixed.png" id="1_spujg"]
+[ext_resource type="Script" path="res://Add_Files/Scripts/player_2.gd" id="1_8q1sh"]
+[ext_resource type="Texture2D" uid="uid://dvdd3w2rkkgv7" path="res://Add_Files/Assets/Pixel_Art/Knight-1-tileset-fixed.png" id="1_spujg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwm4j"]
 size = Vector2(6, 15)
@@ -70,12 +70,22 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_seq41")
+script = ExtResource("1_8q1sh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_qwm4j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_gm61w")
-animation = &"run"
+animation = &"die"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 9)
+target_position = Vector2(0, -16)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
