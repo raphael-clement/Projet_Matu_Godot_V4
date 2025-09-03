@@ -58,9 +58,3 @@ func _movement(delta):
 			animated_sprite.play("run")
 	elif Input.is_action_just_pressed("Move_up") and is_on_floor():
 		animated_sprite.play("jump")
-	
-	
-
-	
-
-	
