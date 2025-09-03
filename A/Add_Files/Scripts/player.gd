@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -250.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ladder_ray_cast: RayCast2D = $RayCast2D
 
+
 func _physics_process(delta: float) -> void:
 	var ladderCollider = ladder_ray_cast.is_colliding()
 	

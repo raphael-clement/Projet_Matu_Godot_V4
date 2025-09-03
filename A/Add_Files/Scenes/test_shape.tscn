@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://t3f82mc11udl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whnek"]
+
+[node name="Test_shape" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_whnek")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D"]
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 9.0
+offset_bottom = 9.0

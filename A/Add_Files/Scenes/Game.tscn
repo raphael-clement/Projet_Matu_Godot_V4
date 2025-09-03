@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bf87yycbjmehi"]
+[gd_scene load_steps=11 format=3 uid="uid://bf87yycbjmehi"]
 
 [ext_resource type="PackedScene" uid="uid://btdcsxq5boh60" path="res://Add_Files/Scenes/Player.tscn" id="1_37iaw"]
 [ext_resource type="Texture2D" uid="uid://mmlpq6r1epax" path="res://Add_Files/Assets/Pixel_Art/Secondary tile-set-1.png" id="1_x65q0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Add_Files/Scripts/inventory.gd" id="4_a3pyf"]
 [ext_resource type="Script" path="res://Add_Files/Scripts/equipment.gd" id="5_a565q"]
 [ext_resource type="Script" path="res://Add_Files/Scripts/statistics.gd" id="6_ynblt"]
+[ext_resource type="PackedScene" uid="uid://t3f82mc11udl" path="res://Add_Files/Scenes/test_shape.tscn" id="7_lu1rs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0w0m5"]
 texture = ExtResource("1_x65q0")
@@ -190,3 +191,6 @@ position = Vector2(-3, 65)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(96, 272)
 shape = SubResource("WorldBoundaryShape2D_1tf7f")
+
+[node name="Test_shape" parent="." instance=ExtResource("7_lu1rs")]
+position = Vector2(241, -43)

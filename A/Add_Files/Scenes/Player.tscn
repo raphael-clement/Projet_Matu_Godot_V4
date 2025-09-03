@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://btdcsxq5boh60"]
+[gd_scene load_steps=11 format=3 uid="uid://btdcsxq5boh60"]
 
 [ext_resource type="Script" path="res://Add_Files/Scripts/player_2.gd" id="1_8q1sh"]
 [ext_resource type="Texture2D" uid="uid://dvdd3w2rkkgv7" path="res://Add_Files/Assets/Pixel_Art/Knight-1-tileset-fixed.png" id="1_spujg"]
@@ -69,7 +69,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctk3v"]
+size = Vector2(15, 18)
+
 [node name="Player" type="CharacterBody2D"]
+platform_floor_layers = 4294967041
 script = ExtResource("1_8q1sh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -89,3 +93,14 @@ collision_mask = 2
 hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_ctk3v")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
