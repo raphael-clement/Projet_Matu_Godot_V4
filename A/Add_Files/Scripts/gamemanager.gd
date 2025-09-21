@@ -8,7 +8,7 @@ var inventory = {
 	"iron" : 0,
 	"bones" : 0
 }
-var inv_str = str(inventory).replace(",", "\n").replace("{", "").replace("}", "")
+var inv_str = str(inventory).replace(",", "\n").replace("{", "").replace("}", "").replace('"', "")
 @onready var inv_label = $"../Player/Camera2D/HUD/Player Tab/Inventory/Label"
 
 
