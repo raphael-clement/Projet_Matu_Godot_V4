@@ -8,6 +8,13 @@ const JUMP_VELOCITY = -250.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 # @onready var ladder_collision_area: Area2D = $Area2D
 var ladder_collision_area : bool = false
+var direction : Vector2
+
+var screen_size # Size of the game window.
+
+func _ready():
+	screen_size = get_viewport_rect().size
+
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	ladder_collision_area = true
@@ -21,34 +28,65 @@ func _physics_process(delta: float) -> void:
 	
 	if ladder_collision_area == true:
 		_ladder_climb(delta)
+		print("in_2")
 		
 	elif ladder_collision_area == false:
 		_movement(delta)
+		print("out_2")
 	
 	else:
 		print("Aaahhhhhhhhh!!!!!!!")
 	
 
 func _ladder_climb(delta):
+
 	#var direction := Vector2.ZERO
 	#direction.x = Input.get_axis("Move_left","Move-right")
 	#direction.y= Input.get_axis("Jump","ui_down")
-	
+
 	# if direction.x:
 	#	velocity.x = direction.x * SPEED
 	#if direction.y:
 	#	velocity.y = direction.y * SPEED
-	var direction = Vector2.ZERO
+	"""
 	direction.x = Input.get_axis("Move_left","Move-right")
-	if not Input.is_action_just_pressed("Jump"):
-		velocity.y = 1 * SPEED
-	elif Input.is_action_just_pressed("Jump"):
-		velocity.y = -1 * SPEED
+	print(direction.x)
+	direction.y = Input.get_axis("Jump","ui_down")
+	print(direction.y)
+	
+	
+	if direction.x:
+		velocity.x = direction.x * SPEED
 	else:
-		print("FUUUUCK")
+		move_toward(velocity.x, 0, SPEED)
+	if direction.y:
+		velocity.y = direction.y * SPEED
+	else:
+		move_toward(velocity.y, 0, SPEED)
+	
+	velocity = Vector2(velocity.x, velocity.y)
+"""
+	var velocity = Vector2.ZERO # The player's movement vector.
+	if Input.is_action_pressed(&"move_right"):
+		velocity.x += 1
+	if Input.is_action_pressed(&"move_left"):
+		velocity.x -= 1
+	if Input.is_action_pressed(&"move_down"):
+		velocity.y += 1
+	if Input.is_action_pressed(&"move_up"):
+		velocity.y -= 1
+
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * SPEED
+		$AnimatedSprite2D.play()
+	else:
+		$AnimatedSprite2D.stop()
+
+	position += velocity * delta
+	position = position.clamp(Vector2.ZERO, screen_size)
 
 func _movement(delta):
-	
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
