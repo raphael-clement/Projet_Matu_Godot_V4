@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://0whxq6hl0nmr"]
 
-[ext_resource type="Script" path="res://Repository-Github-Godot/Scripts/killzone.gd" id="1_jsymk"]
+[ext_resource type="Script" path="res://Add_Files/Scripts/killzone.gd" id="1_p1ltf"]
 
 [node name="Killzone" type="Area2D"]
-script = ExtResource("1_jsymk")
+script = ExtResource("1_p1ltf")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.6

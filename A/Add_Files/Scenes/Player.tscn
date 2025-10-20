@@ -85,15 +85,6 @@ unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_gm61w")
 animation = &"die"
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(0, 9)
-target_position = Vector2(0, -16)
-collision_mask = 2
-hit_from_inside = true
-collide_with_areas = true
-collide_with_bodies = false
-
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2

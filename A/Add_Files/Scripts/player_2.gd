@@ -19,25 +19,18 @@ var direction : Vector2
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	ladder_collision_area = true
-	print("in")
 	
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	ladder_collision_area = false
-	print("out")
 	
 func _physics_process(delta: float) -> void:
 	
 	if ladder_collision_area == true:
 		_ladder_climb(delta)
-		print("in_2")
 		
 	elif ladder_collision_area == false:
 		_movement(delta)
-		print("out_2")
-	
-	else:
-		print("Aaahhhhhhhhh!!!!!!!")
-	
+		
 
 func _ladder_climb(delta):
 
